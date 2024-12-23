@@ -1,11 +1,15 @@
 import React from 'react'
-import Track from './components/Track'
+import MediaTrack from './components/MediaTrack'
+import ActionTrack from './components/ActionTrack'
+import SystemTrack from './components/SystemTrack'
 
 const App = () => {
   return (
     <div>
       <h1>app</h1>
-      <Track />
+      <ActionTrack />
+      <MediaTrack />
+      <SystemTrack />
     </div>
   )
 }

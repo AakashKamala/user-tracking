@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 
-const Track = () => {
+const ActionTrack = () => {
 
     const idleTimeRef=useRef(0)
 
@@ -122,4 +122,4 @@ const Track = () => {
   )
 }
 
-export default Track
+export default ActionTrack
