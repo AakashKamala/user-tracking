@@ -1,6 +1,19 @@
-import React, { useEffect, useRef } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 
 const ActionTrack = () => {
+
+    const [keyD, setKeyD]=useState("")
+    const [keyU, setKeyU]=useState("")
+    const [moseMoveX,setMouseMoveX]=useState("")
+    const [moseMoveY,setMouseMoveY]=useState("")
+    const [moseClickX,setMouseClickX]=useState("")
+    const [moseClickY,setMouseClickY]=useState("")
+    const [rightCl, setRightCl]=useState("")
+    const [cpy, setCpy]=useState()
+    const [pst, setPst]=useState("")
+    const [blr, setBlr]=useState("")
+    const [fcs, setFcs]=useState("")
+    const [vsblty, setVsblty]=useState("")
 
     const idleTimeRef=useRef(0)
 
