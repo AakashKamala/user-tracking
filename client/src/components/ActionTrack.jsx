@@ -4,10 +4,10 @@ const ActionTrack = () => {
 
     const [keyD, setKeyD]=useState("")
     const [keyU, setKeyU]=useState("")
-    const [moseMoveX,setMouseMoveX]=useState("")
-    const [moseMoveY,setMouseMoveY]=useState("")
-    const [moseClickX,setMouseClickX]=useState("")
-    const [moseClickY,setMouseClickY]=useState("")
+    const [mouseMoveX,setMouseMoveX]=useState("")
+    const [mouseMoveY,setMouseMoveY]=useState("")
+    const [mouseClickX,setMouseClickX]=useState("")
+    const [mouseClickY,setMouseClickY]=useState("")
     const [rightCl, setRightCl]=useState("")
     const [cpy, setCpy]=useState()
     const [pst, setPst]=useState("")
@@ -131,7 +131,22 @@ const ActionTrack = () => {
     },[])
 
   return (
-    <div>Track</div>
+    <div>
+        <div>
+            {keyD && <div>{keyD}</div>}
+            {keyU && <div>{keyU}</div>}
+            {mouseMoveX && <div>{mouseMoveX}</div>}
+            {mouseMoveY && <div>{mouseMoveY}</div>}
+            {mouseClickX && <div>{mouseClickX}</div>}
+            {mouseClickY && <div>{mouseClickY}</div>}
+            {rightCl && <div>{rightCl}</div>}
+            {cpy && <div>{cpy}</div>}
+            {pst && <div>{pst}</div>}
+            {blr && <div>{blr}</div>}
+            {fcs && <div>{fcs}</div>}
+            {vsblty && <div>{vsblty}</div>}
+        </div>
+    </div>
   )
 }
 
