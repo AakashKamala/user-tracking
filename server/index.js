@@ -3,6 +3,9 @@ const cors=require("cors")
 require("dotenv").config()
 const app=express()
 
+const Socket=require("socket.io")
+const io=Socket()
+
 const ipRoutes=require("./routers/ip.js")
 
 app.use(express.json())
