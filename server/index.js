@@ -6,6 +6,11 @@ const app=express()
 const Socket=require("socket.io")
 const io=Socket()
 
+io.on("connection", (socket)=>{
+    console.log("a new connection:", socket.id)
+})
+
+
 const ipRoutes=require("./routers/ip.js")
 
 app.use(express.json())
