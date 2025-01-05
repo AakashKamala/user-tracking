@@ -12,7 +12,7 @@ const App = () => {
     const fetchIp = async () => {
       try {
         // const response = await axios("http://localhost:8000/api/getip")
-        const response = await axios("https://user-tracking-iisg.onrender.com/")
+        const response = await axios("https://user-tracking-iisg.onrender.com/api/getip")
         console.log(response)
         console.log(response.data.ip)
         setIp(response.data.ip)
