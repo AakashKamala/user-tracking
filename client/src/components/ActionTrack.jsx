@@ -16,6 +16,7 @@ const ActionTrack = () => {
     const [fcs, setFcs]=useState(true)
     const [vsblty, setVsblty]=useState("")
     const [docHidden, setDocHidden]=useState(0)
+    const [idle, setIdle]=useState(false)
 
     const idleTimeRef=useRef(0)
 
@@ -100,12 +101,16 @@ const ActionTrack = () => {
         }
 
         //idle time section
-        const resetIdle=()=>{idleTimeRef.current=0}
+        const resetIdle=()=>{
+            idleTimeRef.current=0
+            setIdle(false)
+        }
 
         const idleInterval = setInterval(()=>{
             idleTimeRef.current++
             if(idleTimeRef.current>7) {
                 console.log("user is idle")
+                setIdle(true)
             }
         }, 1000)
 
@@ -169,6 +174,7 @@ const ActionTrack = () => {
             {fcs && <div>window in focus{fcs}</div>}
             {docHidden && <div>document visibility hidden count: {docHidden}</div>}
             {vsblty && <div>document visibility: {vsblty}</div>}
+            {idle && <div>user is idle</div>}
         </div>
     </div>
   )

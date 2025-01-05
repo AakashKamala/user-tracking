@@ -16,6 +16,10 @@ const ClipboardReader = () => {
           data.push({ type: 'text', content: textData });
         }
 
+        else{
+          return
+        }
+
         // Check for image data
         if (item.types.includes('image/png')) {
           const image = await item.getType('image/png');
@@ -38,6 +42,7 @@ const ClipboardReader = () => {
         {clipboardData.map((item, index) => (
           <div key={index}>
             {item.type === 'text' && <div><p>{item.content}</p><br /></div>}
+            {item.type !=="text"  && <div>item type: <p>{item.type}</p></div>}
             {item.type === 'image' && <div><img src={item.content} alt="Clipboard content" /><br /></div>}
           </div>
         ))}
