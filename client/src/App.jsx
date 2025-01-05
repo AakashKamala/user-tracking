@@ -16,7 +16,7 @@ const App = () => {
     <div>
       <h1>app</h1>
       <ActionTrack />
-      <MediaTrack />
+      {/* <MediaTrack /> */}
       <SystemTrack />
     </div>
   )

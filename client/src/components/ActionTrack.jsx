@@ -8,12 +8,14 @@ const ActionTrack = () => {
     const [mouseMoveY,setMouseMoveY]=useState("")
     const [mouseClickX,setMouseClickX]=useState("")
     const [mouseClickY,setMouseClickY]=useState("")
-    const [rightCl, setRightCl]=useState("")
-    const [cpy, setCpy]=useState()
-    const [pst, setPst]=useState("")
-    const [blr, setBlr]=useState("")
-    const [fcs, setFcs]=useState("")
+    const [rightCl, setRightCl]=useState(0)
+    const [cpy, setCpy]=useState(0)
+    const [pst, setPst]=useState(0)
+    const [blr, setBlr]=useState(false)
+    const [blrcnt, setBlrcnt]=useState(0)
+    const [fcs, setFcs]=useState(true)
     const [vsblty, setVsblty]=useState("")
+    const [docHidden, setDocHidden]=useState(0)
 
     const idleTimeRef=useRef(0)
 
@@ -27,23 +29,30 @@ const ActionTrack = () => {
 
         const handleKeyDown=(e)=>{
             console.log(`Key Down: ${e.key}`)
+            setKeyD(e.key)
         }
 
         const handleKeyUp=(e)=>{
             console.log(`Key Up: ${e.key}`)
+            setKeyU(e.key)
         }
 
         const handleMouseMove=(e)=>{
             console.log(`Mouse moved to: X=${e.clientX}, Y=${e.clientY}`)
+            setMouseMoveX(e.clientX)
+            setMouseMoveY(e.clientY)
         }
 
         const handleClick=(e)=>{
             console.log(`Mouse clicked at: X=${e.clientX}, Y=${e.clientY}`)
+            setMouseClickX(e.clientX)
+            setMouseClickY(e.clientY)
         }
 
         const handleContextMenu=(e)=>{
             // e.preventDefault()
             console.log("right click detected")
+            setRightCl(prevRightCl => prevRightCl + 1)
         }
 
         const handleTouchStart=(e)=>{
@@ -60,22 +69,34 @@ const ActionTrack = () => {
 
         const handleBlur=()=>{
             console.log("window out of focus")
+            setBlr(true)
+            setFcs(false)
+            setBlrcnt(prev=>prev+1)
         }
 
         const handleFocus=()=>{
             console.log("window back in focus")
+            setBlr(false)
+            setFcs(true)
         }
 
         const handleVisibilityChange=()=>{
             console.log(`Document visibility: ${document.visibilityState}`)
+            setVsblty(document.visibilityState)
+            if(document.visibilityState=="hidden")
+            {
+                setDocHidden(prev=>prev+1)
+            }
         }
 
         const handleCopy=()=>{
             console.log("content copied")
+            setCpy(prev=>prev+1)
         }
 
         const handlePaste=()=>{
             console.log("content pasted")
+            setPst(prev=>prev+1)
         }
 
         //idle time section
@@ -134,18 +155,20 @@ const ActionTrack = () => {
     <div>
         <div>Track</div>
         <div>
-            {keyD && <div>{keyD}</div>}
-            {keyU && <div>{keyU}</div>}
-            {mouseMoveX && <div>{mouseMoveX}</div>}
-            {mouseMoveY && <div>{mouseMoveY}</div>}
-            {mouseClickX && <div>{mouseClickX}</div>}
-            {mouseClickY && <div>{mouseClickY}</div>}
-            {rightCl && <div>{rightCl}</div>}
-            {cpy && <div>{cpy}</div>}
-            {pst && <div>{pst}</div>}
-            {blr && <div>{blr}</div>}
-            {fcs && <div>{fcs}</div>}
-            {vsblty && <div>{vsblty}</div>}
+            {keyD && <div>key down: {keyD}</div>}
+            {keyU && <div>key up: {keyU}</div>}
+            {mouseMoveX && <div>mouse move X: {mouseMoveX}</div>}
+            {mouseMoveY && <div>mouse move Y: {mouseMoveY}</div>}
+            {mouseClickX && <div>mouse click X: {mouseClickX}</div>}
+            {mouseClickY && <div>mouse click Y: {mouseClickY}</div>}
+            {rightCl>0 && <div>right Click: {rightCl}</div>}
+            {cpy>0 && <div>content copied: {cpy}</div>}
+            {pst>0 && <div>content pasted: {pst}</div>}
+            {blrcnt>0 && <div>window out of focus count: {blrcnt}</div>}
+            {blr && <div>window out of focus{blr}</div>}
+            {fcs && <div>window in focus{fcs}</div>}
+            {docHidden && <div>document visibility hidden count: {docHidden}</div>}
+            {vsblty && <div>document visibility: {vsblty}</div>}
         </div>
     </div>
   )
