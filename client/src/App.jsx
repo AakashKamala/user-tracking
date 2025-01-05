@@ -1,36 +1,105 @@
+// import React, { useEffect, useState } from 'react'
+// import MediaTrack from './components/MediaTrack'
+// import ActionTrack from './components/ActionTrack'
+// import SystemTrack from './components/SystemTrack'
+// import axios from 'axios' // Don't forget to import axios
+
+// const App = () => {
+//   const [ip, setIp] = useState("")
+//   const [details, setDetails]=useState("")
+
+//   useEffect(() => {
+//     // Define and immediately execute the async function
+//     const fetchIp = async () => {
+//       try {
+//         // const response = await axios("http://localhost:8000/api/getip")
+//         const response = await axios("https://user-tracking-iisg.onrender.com/api/getip")
+//         console.log(response)
+//         console.log(response.data.ip)
+//         setIp(response.data.ip)
+//         setDetails(response.data.geoDetails)
+//       } catch (error) {
+//         console.error('Error fetching IP:', error)
+//       }
+//     }
+
+//     fetchIp() // Execute the function
+//   }, [])
+
+//   return (
+//     <div>
+//       <h1>app</h1>
+//       <p>{ip}</p>
+//       <p>{details}</p>
+//       <ActionTrack />
+//       <MediaTrack />
+//       <SystemTrack />
+//     </div>
+//   )
+// }
+
+// export default App
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import React, { useEffect, useState } from 'react'
 import MediaTrack from './components/MediaTrack'
 import ActionTrack from './components/ActionTrack'
 import SystemTrack from './components/SystemTrack'
-import axios from 'axios' // Don't forget to import axios
+import axios from 'axios'
 
 const App = () => {
   const [ip, setIp] = useState("")
-  const [details, setDetails]=useState("")
+  const [details, setDetails] = useState(null) // Start with null for clarity
 
   useEffect(() => {
-    // Define and immediately execute the async function
     const fetchIp = async () => {
       try {
         // const response = await axios("http://localhost:8000/api/getip")
-        const response = await axios("https://user-tracking-iisg.onrender.com/api/getip")
-        console.log(response)
-        console.log(response.data.ip)
-        setIp(response.data.ip)
-        setDetails(response.data.geoDetails)
+        const response = await axios.get("https://user-tracking-iisg.onrender.com/api/getip")
+        console.log(response.data)
+        setIp(response.data.ip || "IP not available")
+        setDetails(response.data.geoDetails || {})
       } catch (error) {
         console.error('Error fetching IP:', error)
+        setIp("Error fetching IP")
+        setDetails({})
       }
     }
 
-    fetchIp() // Execute the function
+    fetchIp()
   }, [])
 
   return (
     <div>
-      <h1>app</h1>
-      <p>{ip}</p>
-      <p>{details}</p>
+      <h1>App</h1>
+      <p>IP: {ip}</p>
+      <div>
+        <h2>Geo Details:</h2>
+        {details && Object.entries(details).length > 0 ? (
+          <ul>
+            {Object.entries(details).map(([key, value]) => (
+              <li key={key}>
+                <strong>{key}:</strong> {value}
+              </li>
+            ))}
+          </ul>
+        ) : (
+          <p>No details available</p>
+        )}
+      </div>
       <ActionTrack />
       <MediaTrack />
       <SystemTrack />

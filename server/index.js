@@ -12,11 +12,13 @@ io.on("connection", (socket)=>{
 
 
 const ipRoutes=require("./routers/ip.js")
+const locationRoutes=require("./routers/location.js")
 
 app.use(express.json())
 app.use(cors())
 
 app.use("/api", ipRoutes)
+app.use("/api", locationRoutes)
 
 app.get("/", (req, res)=>{
     res.json({"message": "alive"})
