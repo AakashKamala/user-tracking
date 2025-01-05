@@ -456,20 +456,20 @@ const MediaTrack = () => {
   };
 
   return (
-    <div className="p-4">
-      <h1 className="text-2xl font-bold mb-4">MediaTrack</h1>
+    <div className="">
+      <h1 className="">MediaTrack</h1>
       
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">Camera Stream</h2>
+      <div className="">
+        <h2 className="">Camera Stream</h2>
         <button 
           onClick={startWebcam}
-          className="bg-blue-500 text-white px-4 py-2 rounded mb-2 hover:bg-blue-600"
+          className=""
         >
           {stream ? 'Restart Webcam' : 'Start Webcam'}
         </button>
         <video 
           ref={videoRef} 
-          width="500" 
+          width="90%" 
           height="300" 
           autoPlay 
           controls
@@ -477,17 +477,17 @@ const MediaTrack = () => {
         ></video>
       </div>
 
-      <div className="mb-6">
-        <h2 className="text-xl font-semibold mb-2">Screen Share Stream</h2>
+      <div className="">
+        <h2 className="">Screen Share Stream</h2>
         <button 
           onClick={startScreenShare}
-          className="bg-green-500 text-white px-4 py-2 rounded mb-2 hover:bg-green-600"
+          className=""
         >
           {screen ? 'Restart Screen Share' : 'Start Screen Share'}
         </button>
         <video 
           ref={screenRef} 
-          width="500" 
+          width="90%" 
           height="300" 
           autoPlay 
           controls
