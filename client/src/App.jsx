@@ -11,7 +11,8 @@ const App = () => {
     // Define and immediately execute the async function
     const fetchIp = async () => {
       try {
-        const response = await axios("http://localhost:8000/api/getip")
+        // const response = await axios("http://localhost:8000/api/getip")
+        const response = await axios("https://user-tracking-iisg.onrender.com/")
         console.log(response)
         console.log(response.data.ip)
         setIp(response.data.ip)
