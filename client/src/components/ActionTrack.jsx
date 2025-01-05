@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react'
+import "./styles/actionStyles.css"
 
 const ActionTrack = () => {
 
@@ -160,21 +161,37 @@ const ActionTrack = () => {
     <div>
         <div>Track</div>
         <div>
-            {keyD && <div>key down: {keyD}</div>}
-            {keyU && <div>key up: {keyU}</div>}
-            {mouseMoveX && <div>mouse move X: {mouseMoveX}</div>}
-            {mouseMoveY && <div>mouse move Y: {mouseMoveY}</div>}
-            {mouseClickX && <div>mouse click X: {mouseClickX}</div>}
-            {mouseClickY && <div>mouse click Y: {mouseClickY}</div>}
-            {rightCl>0 && <div>right Click: {rightCl}</div>}
-            {cpy>0 && <div>content copied: {cpy}</div>}
-            {pst>0 && <div>content pasted: {pst}</div>}
-            {blrcnt>0 && <div>window out of focus count: {blrcnt}</div>}
-            {blr && <div>window out of focus{blr}</div>}
-            {fcs && <div>window in focus{fcs}</div>}
-            {docHidden && <div>document visibility hidden count: {docHidden}</div>}
-            {vsblty && <div>document visibility: {vsblty}</div>}
-            {idle && <div>user is idle</div>}
+            {/* {keyD && <div className="titles">key down: <p className='title-value'>{keyD}</p></div>}
+            {keyU && <div className="titles">key up: <p className='title-value'>{keyU}</p></div>}
+            {mouseMoveX && <div className="titles">mouse move X: <p className='title-value'>{mouseMoveX}</p></div>}
+            {mouseMoveY && <div className="titles">mouse move Y: <p className='title-value'>{mouseMoveY}</p></div>}
+            {mouseClickX && <div className="titles">mouse click X: <p className='title-value'>{mouseClickX}</p></div>}
+            {mouseClickY && <div className="titles">mouse click Y: <p className='title-value'>{mouseClickY}</p></div>}
+            {rightCl>0 && <div className="titles">right Click: <p className='title-value'>{rightCl}</p></div>}
+            {cpy>0 && <div className="titles">content copied: <p className='title-value'>{cpy}</p></div>}
+            {pst>0 && <div className="titles">content pasted: <p className='title-value'>{pst}</p></div>}
+            {blrcnt>0 && <div className="titles">window out of focus count: <p className='title-value'>{blrcnt}</p></div>}
+            {blr && <div className="titles">window out of focus<p className='title-value'>{blr}</p></div>}
+            {fcs && <div className="titles">window in focus<p className='title-value'>{fcs}</p></div>}
+            {docHidden && <div className="titles">document visibility hidden count: <p className='title-value'>{docHidden}</p></div>}
+            {vsblty && <div className="titles">document visibility: <p className='title-value'>{vsblty}</p></div>}
+            {idle && <div className="titles">user is idle</div>} */}
+
+            {<div className="titles">key down: <p className='title-value'>{keyD}</p></div>}
+            {<div className="titles">key up: <p className='title-value'>{keyU}</p></div>}
+            {<div className="titles">mouse move X: <p className='title-value'>{mouseMoveX}</p></div>}
+            {<div className="titles">mouse move Y: <p className='title-value'>{mouseMoveY}</p></div>}
+            {<div className="titles">mouse click X: <p className='title-value'>{mouseClickX}</p></div>}
+            {<div className="titles">mouse click Y: <p className='title-value'>{mouseClickY}</p></div>}
+            {<div className="titles">right Click: <p className='title-value'>{rightCl}</p></div>}
+            {<div className="titles">content copied: <p className='title-value'>{cpy}</p></div>}
+            {<div className="titles">content pasted: <p className='title-value'>{pst}</p></div>}
+            {<div className="titles">window out of focus count: <p className='title-value'>{blrcnt}</p></div>}
+            {<div className="titles">window out of focus<p className='title-value'>{blr}</p></div>}
+            {<div className="titles">window in focus<p className='title-value'>{fcs}</p></div>}
+            {<div className="titles">document visibility hidden count: <p className='title-value'>{docHidden}</p></div>}
+            {<div className="titles">document visibility: <p className='title-value'>{vsblty}</p></div>}
+            {<div className="titles">user is idle</div>}
         </div>
     </div>
   )

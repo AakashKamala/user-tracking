@@ -4,5 +4,10 @@
 }
 
 body{
-    background-color: green;
+    background-color: black;
+    color: green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
