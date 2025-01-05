@@ -6,6 +6,7 @@ import axios from 'axios' // Don't forget to import axios
 
 const App = () => {
   const [ip, setIp] = useState("")
+  const [details, setDetails]=useState("")
 
   useEffect(() => {
     // Define and immediately execute the async function
@@ -16,6 +17,7 @@ const App = () => {
         console.log(response)
         console.log(response.data.ip)
         setIp(response.data.ip)
+        setDetails(response.data.geoDetails)
       } catch (error) {
         console.error('Error fetching IP:', error)
       }
@@ -28,6 +30,7 @@ const App = () => {
     <div>
       <h1>app</h1>
       <p>{ip}</p>
+      <p>{details}</p>
       <ActionTrack />
       <MediaTrack />
       <SystemTrack />
