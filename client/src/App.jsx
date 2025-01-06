@@ -28,7 +28,7 @@ const App = () => {
 
   return (
     <div>
-      <h1>App</h1>
+      <h1>User information</h1>
       <p>IP: {ip}</p>
       <div>
         <h2>Geo Details:</h2>
