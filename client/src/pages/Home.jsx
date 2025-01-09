@@ -9,8 +9,9 @@ const home = () => {
         <p>it can be scrolling social media, google searches, or visiting any platform</p>
         <p>if your device has any sort of connection, there is a chance, you can be monitored, or tracked</p>
         <br />
-        <h2>This platform will try to inform you abi=out the ways you can be tracked/monitored.</h2>
-        <p>explore the patform inside out to get to know the ways platforms can implement to track you</p>
+        <h2>This platform will try to inform you about the ways you can be tracked/monitored.</h2>
+        <p>explore the patform inside out to get to know the ways platforms can track you</p>
+        <p>we will keep adding new features...</p>
     </div>
   )
 }
