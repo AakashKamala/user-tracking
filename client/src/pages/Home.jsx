@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const home = () => {
   return (
@@ -12,6 +13,7 @@ const home = () => {
         <h2>This platform will try to inform you about the ways you can be tracked/monitored.</h2>
         <p>explore the patform inside out to get to know the ways platforms can track you</p>
         <p>we will keep adding new features...</p>
+        <div style={{background:"white"}}><Link to="/track">Click here</Link></div>
     </div>
   )
 }
